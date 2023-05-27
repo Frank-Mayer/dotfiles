@@ -98,5 +98,5 @@ brew install neovim
 ```
 
 ```
-brew install asciinema
+brew install asciinema && asciinema auth
 ```
