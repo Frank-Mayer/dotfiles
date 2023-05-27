@@ -18,6 +18,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ### Unix coreutils
 
 ```
+brew unlink gdu
+```
+
+```
 brew install coreutils
 ```
 
