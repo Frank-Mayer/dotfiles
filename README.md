@@ -29,12 +29,24 @@ brew install coreutils
 brew install make
 ```
 
+### Asciinema
+
+```
+brew install asciinema
+```
+
+### Shenanigans
+
 ```
 brew install fortune
 ```
 
 ```
 brew install cowsay
+```
+
+```
+brew install lolcat
 ```
 
 ### LLDB
