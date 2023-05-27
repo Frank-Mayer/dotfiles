@@ -29,6 +29,14 @@ brew install coreutils
 brew install make
 ```
 
+```
+brew install fortune
+```
+
+```
+brew install cowsay
+```
+
 ### LLDB
 
 Install XCode.
