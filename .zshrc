@@ -1,13 +1,17 @@
-if [ "$TMUX" = "" ]; then
-    tmux;
-    exit 0;
-fi
+# if [ "$TMUX" = "" ]; then
+#     tmux;
+#     exit 0;
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-20.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Rust env
 source "$HOME/.cargo/env"
@@ -93,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -149,14 +153,27 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
 
+# https://github.com/jesseduffield/lazygit
 alias lg="lazygit"
+
+# https://github.com/ajeetdsouza/zoxide
 alias cd="z"
-alias cat="bat"
+
+# https://github.com/sharkdp/bat
+# alias cat="bat"
+
+# https://github.com/ogham/exa
 alias ls="exa"
 alias l="exa -alh"
 alias tree="exa --tree"
+
+# https://github.com/BurntSushi/ripgrep
 alias grep="rg"
 
-eval "$(zoxide init zsh)"
+# https://github.com/bootandy/dust
+alias du="dust"
 
-neofetch
+eval "$(zoxide init zsh &)"
+
+source ~/neofetch.sh
+alias neofetch="source ~/neofetch.sh"
