@@ -29,12 +29,6 @@ brew install coreutils
 brew install make
 ```
 
-### Asciinema
-
-```
-brew install asciinema
-```
-
 ### Shenanigans
 
 ```
@@ -101,4 +95,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ```
 brew install neovim
+```
+
+```
+brew install asciinema
 ```
