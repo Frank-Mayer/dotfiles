@@ -134,7 +134,7 @@ alias python=python3
 alias pip=pip3
 export PYTHON=python3
 
-export PATH=/opt/homebrew/bin:/Users/frankmayer/.local/bin:$PATH
+export PATH=/opt/homebrew/bin:/Users/frankmayer/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export GIT=~/Documents/Git/
