@@ -86,6 +86,10 @@ brew install go
 ```
 
 ```
+brew install --cask corretto
+```
+
+```
 brew install python
 ```
 
