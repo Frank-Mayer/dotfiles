@@ -33,6 +33,10 @@ brew install coreutils
 brew install make
 ```
 
+```
+brew install gpg2 gnupg pinentry-mac
+```
+
 ### Shenanigans
 
 ```
