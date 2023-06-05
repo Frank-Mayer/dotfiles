@@ -3,6 +3,11 @@
 #     exit 0;
 # fi
 
+export PATH=/opt/homebrew/bin:/Users/frankmayer/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+export GPG_TTY=$(tty)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -124,18 +129,11 @@ export LANG=en_US.UTF-8
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh
-
 # aliases
 alias -g py=python3
 alias python=python3
 alias pip=pip3
 export PYTHON=python3
-
-export PATH=/opt/homebrew/bin:/Users/frankmayer/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
-export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export GIT=~/Documents/Git/
 
@@ -145,6 +143,17 @@ alias vi="nvim"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
+
+# Kitty
+function kitty_theme {
+    hour=$(date +%H)
+    if [ $hour -ge 6 -a $hour -lt 18 ]; then
+        kitty +kitten themes --reload-in=all Catppuccin-Latte
+    else
+        kitty +kitten themes --reload-in=all Catppuccin-Mocha
+    fi
+}
+kitty_theme
 
 # https://github.com/jesseduffield/lazygit
 alias lg="lazygit"
@@ -167,6 +176,7 @@ alias grep="rg"
 # https://github.com/bootandy/dust
 alias du="dust"
 
+alias code="codium"
+
 source ~/neofetch.sh
 alias neofetch="source ~/neofetch.sh"
-export MANPATH=$MANPATH:/Users/frankmayer/.jack/man
