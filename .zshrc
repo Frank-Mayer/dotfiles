@@ -24,11 +24,19 @@ source "$HOME/.cargo/env"
 
 export GRAPHVIZ_DOT="/opt/homebrew/bin/dot"
 
-# Set name of the theme to load --- if set to "random", it eill
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# Auto light/dark theme
+ZSH_THEME=""
+function daynight {
+    hour=$(date +%H)
+    if [ $hour -ge 6 -a $hour -lt 20 ]; then
+        kitty +kitten themes --reload-in=all Catppuccin-Latte
+        ZSH_THEME="agnoster-light"
+    else
+        kitty +kitten themes --reload-in=all Catppuccin-Mocha
+        ZSH_THEME="agnoster"
+    fi
+}
+daynight
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -61,7 +69,7 @@ zstyle ':omz:update' frequency 13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -143,17 +151,6 @@ alias vi="nvim"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
-
-# Kitty
-function kitty_theme {
-    hour=$(date +%H)
-    if [ $hour -ge 6 -a $hour -lt 18 ]; then
-        kitty +kitten themes --reload-in=all Catppuccin-Latte
-    else
-        kitty +kitten themes --reload-in=all Catppuccin-Mocha
-    fi
-}
-kitty_theme
 
 # https://github.com/jesseduffield/lazygit
 alias lg="lazygit"
