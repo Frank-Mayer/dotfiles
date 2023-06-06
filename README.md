@@ -9,6 +9,8 @@ Neovim config: [Frank-Mayer/nvim](https://github.com/Frank-Mayer/nvim)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+Add [`agnoster-light.zsh-theme`](https://github.com/mkolosick/agnoster-light/blob/master/agnoster-light.zsh-theme) to `~/.oh-my-zsh/themes/`
+
 ### homebrew
 
 ```
