@@ -24,6 +24,10 @@ brew install git
 ```
 
 ```
+git config --global core.excludesfile ~/.config/git/.gitignore
+```
+
+```
 brew unlink gdu
 ```
 
