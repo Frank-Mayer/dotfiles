@@ -106,7 +106,7 @@ brew install python
 ```
 
 ```
-brew install --cask kitty
+brew install --cask wezterm
 ```
 
 ```
