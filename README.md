@@ -109,6 +109,8 @@ brew install python
 brew install --cask wezterm
 ```
 
+*Give wezterm all rights in system Settings*
+
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
