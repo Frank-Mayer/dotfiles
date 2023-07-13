@@ -3,9 +3,12 @@
 #     exit 0;
 # fi
 
-export PATH=/opt/homebrew/bin:/Users/frankmayer/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
-export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
-
+export PATH=/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/Users/frankmayer/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/gettext/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L/opt/homebrew/opt/gettext/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/gettext/include"
+export LIBRARY_PATH="/usr/local/include/:$LIBRARY_PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 export GPG_TTY=$(tty)
 
 # If you come from bash you might have to change your $PATH.
@@ -16,8 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-20.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH=$PATH:$HOME/.jack/bin
+export PATH=$JAVA_HOME/bin:/opt/jack/bin:$PATH
 
 # Rust env
 source "$HOME/.cargo/env"
@@ -25,18 +27,8 @@ source "$HOME/.cargo/env"
 export GRAPHVIZ_DOT="/opt/homebrew/bin/dot"
 
 # Auto light/dark theme
-ZSH_THEME=""
-function daynight {
-    hour=$(date +%H)
-    if [ $hour -ge 6 -a $hour -lt 20 ]; then
-        kitty +kitten themes --reload-in=all Catppuccin-Latte
-        ZSH_THEME="agnoster-light"
-    else
-        kitty +kitten themes --reload-in=all Catppuccin-Mocha
-        ZSH_THEME="agnoster"
-    fi
-}
-daynight
+ZSH_THEME="agnoster"
+kitty +kitten themes --reload-in=all Catppuccin-Mocha
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -104,6 +96,8 @@ plugins=(
     macos
 )
 
+export ZSH_COMPDUMP=$HOME/.cache/.zcompdump-$HOST
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -143,14 +137,12 @@ alias python=python3
 alias pip=pip3
 export PYTHON=python3
 
-export GIT=~/Documents/Git/
-
 # Neovim !!!
 alias vim="nvim"
 alias vi="nvim"
 export VISUAL=nvim
-export EDITOR="$VISUAL"
-export GIT_EDITOR="$VISUAL"
+export EDITOR="/opt/homebrew/bin/nvim"
+export GIT_EDITOR="/opt/homebrew/bin/nvim"
 
 # https://github.com/jesseduffield/lazygit
 alias lg="lazygit"
@@ -173,7 +165,9 @@ alias grep="rg"
 # https://github.com/bootandy/dust
 alias du="dust"
 
-alias code="codium"
-
 source ~/neofetch.sh
 alias neofetch="source ~/neofetch.sh"
+
+
+# bun completions
+[ -s "/Users/frank/.bun/_bun" ] && source "/Users/frank/.bun/_bun"
