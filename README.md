@@ -120,3 +120,9 @@ brew install neovim
 ```
 brew install asciinema && asciinema auth
 ```
+
+### Other
+
+```
+brew install --cask rectangle
+```
