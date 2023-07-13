@@ -74,8 +74,8 @@ config.keys = {
     { key = "&", mods = "LEADER|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
     { key = "d", mods = "LEADER",       action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
     { key = "x", mods = "LEADER",       action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
-    { key = "%", mods = "LEADER",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    { key = '"', mods = "LEADER",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = '"', mods = "LEADER",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "%", mods = "LEADER",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 }
 
 -- and finally, return the configuration to wezterm
