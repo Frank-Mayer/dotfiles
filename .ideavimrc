@@ -1,0 +1,7 @@
+:set number
+:set number relativenumber
+:set clipboard=unnamed
+
+" Keymaps
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
