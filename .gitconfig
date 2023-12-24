@@ -1,0 +1,30 @@
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[user]
+	signingkey = F9E1628BB257271362A804435E199880EA03FC8D
+	name = Frank Mayer
+	email = gpg@frankmayer.dev
+[commit]
+	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[core]
+	excludesfile = /Users/frank/.config/git/.gitignore
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[alias]
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
