@@ -87,12 +87,8 @@ if status is-interactive
     zoxide init fish | source
     golangci-lint completion fish | source
     alias cd="z"
-    alias ls="exa"
-    alias l="exa -alh"
-    alias tree="exa --tree"
     alias grep="rg"
     alias du="dust"
-    alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
     alias copy="pbcopy"
     alias paste="pbpaste"
 
