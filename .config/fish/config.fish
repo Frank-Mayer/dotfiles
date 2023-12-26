@@ -87,6 +87,7 @@ if status is-interactive
     zoxide init fish | source
     golangci-lint completion fish | source
     alias cd="z"
+    alias l="ls -lah"
     alias grep="rg"
     alias du="dust"
     alias copy="pbcopy"
