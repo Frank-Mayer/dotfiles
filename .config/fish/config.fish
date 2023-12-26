@@ -26,7 +26,7 @@ export GRAPHVIZ_DOT="/opt/homebrew/bin/dot"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export PATH="/opt/homebrew/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:/Applications/WezTerm.app/Contents/MacOS:$GOPATH/bin/:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/coreutils/libexec/gnubin:/Applications/WezTerm.app/Contents/MacOS:$GOPATH/bin/:$PATH"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
 export PATH="$JAVA_HOME/bin:$PATH:/opt/jack/bin"
