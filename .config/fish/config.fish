@@ -69,7 +69,7 @@ function gohere
     echo "## Install" >> README.md
     echo "" >> README.md
     echo "```bash" >> README.md
-    echo "go install github.com/Frank-Mayer/$argv/cmd/$argv" >> README.md
+    echo "go install github.com/Frank-Mayer/$argv/cmd/$argv@latest" >> README.md
     echo "```" >> README.md
     git init
 end
