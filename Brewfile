@@ -4,7 +4,10 @@ tap "homebrew/services"
 tap "melkeydev/melkey"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
+tap "oven-sh/bun"
 tap "withgraphite/tap"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Record and share terminal sessions
 brew "asciinema"
 # Aquarium animation in ASCII art
@@ -59,6 +62,8 @@ brew "htop"
 brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Utility for directing compilation
 brew "make"
 # Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
@@ -83,6 +88,8 @@ brew "starship"
 brew "viu"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # Allows you to manage your stacked changes and submit them for review on GitHub
 brew "withgraphite/tap/graphite"
 # OpenJDK distribution from Amazon
@@ -109,5 +116,7 @@ cask "raycast"
 cask "rectangle"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# Multimedia player
+cask "vlc"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
