@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+tap "incu6us/tap"
 tap "melkeydev/melkey"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
@@ -16,16 +17,22 @@ brew "asciiquarium"
 brew "bash"
 # User-friendly launcher for Bazel
 brew "bazelisk"
+# BibTeX bibliography file pretty printer and syntax checker
+brew "bibclean"
 # Version manager for neovim
 brew "bob"
 # Format bazel BUILD files with a standard convention
 brew "buildifier"
 # Rewrite bazel BUILD files using standard commands
 brew "buildozer"
+# Check Java source against a coding standard
+brew "checkstyle"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Static analysis of C and C++ code
+brew "cppcheck"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # More intuitive version of du in rust
@@ -34,6 +41,8 @@ brew "dust"
 brew "node"
 # AST-based pattern checker for JavaScript
 brew "eslint"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
@@ -62,14 +71,20 @@ brew "htop"
 brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Next-gen compiler infrastructure
+brew "llvm"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Utility for directing compilation
 brew "make"
 # Easily convert Marp Markdown files into static HTML/CSS, PDF, PPT and images
 brew "marp-cli"
+# Minimalist GNU for Windows and GCC cross-compilers
+brew "mingw-w64"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Draw UML diagrams
 brew "plantuml"
 # Fast, disk space efficient package manager
@@ -84,10 +99,16 @@ brew "sdl2"
 brew "showkey"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Opinionated Lua code formatter
+brew "stylua"
 # Simple terminal image viewer written in Rust
 brew "viu"
+# Internet file retriever
+brew "wget"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Right imports sorting & code formatting tool
+brew "incu6us/tap/goimports-reviser"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
 # Allows you to manage your stacked changes and submit them for review on GitHub
