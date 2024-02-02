@@ -1,4 +1,5 @@
 tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "incu6us/tap"
@@ -25,6 +26,8 @@ brew "bob"
 brew "buildifier"
 # Rewrite bazel BUILD files using standard commands
 brew "buildozer"
+# Software library to render fonts
+brew "freetype"
 # Check Java source against a coding standard
 brew "checkstyle"
 # Cross-platform make
@@ -101,6 +104,8 @@ brew "showkey"
 brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
+# Granddaddy of HTML tools, with support for modern standards
+brew "tidy-html5"
 # Simple terminal image viewer written in Rust
 brew "viu"
 # Internet file retriever
@@ -115,6 +120,10 @@ brew "oven-sh/bun/bun"
 brew "withgraphite/tap/graphite"
 # OpenJDK distribution from Amazon
 cask "corretto"
+# Typeface made for developers
+cask "font-jetbrains-mono"
+# Developer targeted fonts with a high number of glyphs
+cask "font-jetbrains-mono-nerd-font"
 # Adds an OpenGL renderer to the ZDoom source port
 cask "gzdoom"
 # Vector graphics editor
@@ -139,5 +148,7 @@ cask "rectangle"
 cask "sublime-text"
 # Multimedia player
 cask "vlc"
+# Rust-based terminal
+cask "warp"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
