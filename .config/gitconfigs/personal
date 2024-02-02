@@ -1,9 +1,9 @@
 [gpg]
 	program = /opt/homebrew/bin/gpg
 [user]
-	signingkey = F9E1628BB257271362A804435E199880EA03FC8D
+	signingkey = A380988F30F0CF86FF033196A098C5B34BA4B5F6
 	name = Frank Mayer
-	email = gpg@frankmayer.dev
+	email = gh@frankmayer.dev
 [commit]
 	gpgsign = true
 [credential "https://github.com"]

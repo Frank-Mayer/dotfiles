@@ -7,6 +7,7 @@ tap "melkeydev/melkey"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
+tap "theykk/tap"
 tap "withgraphite/tap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
@@ -98,6 +99,8 @@ brew "protobuf"
 brew "ripgrep"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew "sdl2"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Simple keystroke visualizer
 brew "showkey"
 # Opinionated Lua code formatter
@@ -114,6 +117,8 @@ brew "zoxide"
 brew "incu6us/tap/goimports-reviser"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# Switch between your git profiles easily
+brew "theykk/tap/git-switcher"
 # Allows you to manage your stacked changes and submit them for review on GitHub
 brew "withgraphite/tap/graphite"
 # OpenJDK distribution from Amazon
