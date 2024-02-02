@@ -100,8 +100,6 @@ brew "ripgrep"
 brew "sdl2"
 # Simple keystroke visualizer
 brew "showkey"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
 # Granddaddy of HTML tools, with support for modern standards
