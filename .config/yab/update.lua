@@ -12,3 +12,7 @@ os.execute('nvim --headless +"Lazy! sync" +"MasonUpdate" +qa')
 
 print("Updating Go")
 os.execute("go-global-update")
+
+print("Updating Rust")
+os.execute("rustup update")
+os.execute("cargo install-update -a")
