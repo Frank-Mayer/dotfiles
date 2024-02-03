@@ -29,10 +29,14 @@ brew "buildifier"
 brew "buildozer"
 # Software library to render fonts
 brew "freetype"
+# GNU compiler collection
+brew "gcc"
 # Check Java source against a coding standard
 brew "checkstyle"
 # Cross-platform make
 brew "cmake"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Static analysis of C and C++ code
@@ -47,12 +51,12 @@ brew "node"
 brew "eslint"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU compiler collection
-brew "gcc"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -85,6 +89,8 @@ brew "make"
 brew "marp-cli"
 # Minimalist GNU for Windows and GCC cross-compilers
 brew "mingw-w64"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Manage compile and link flags for libraries
@@ -93,12 +99,8 @@ brew "pkg-config"
 brew "plantuml"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
 # Used as a compiler wrapper and avoids compilation when possible
 brew "sccache"
 # Simple keystroke visualizer
@@ -123,6 +125,8 @@ brew "theykk/tap/git-switcher"
 brew "withgraphite/tap/graphite"
 # OpenJDK distribution from Amazon
 cask "corretto"
+# UI toolkit for building applications for mobile, web and desktop
+cask "flutter"
 # Typeface made for developers
 cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
