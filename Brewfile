@@ -35,8 +35,6 @@ brew "gcc"
 brew "checkstyle"
 # Cross-platform make
 brew "cmake"
-# Powerful, clean, object-oriented scripting language
-brew "ruby"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # GNU File, Shell, and Text utilities
@@ -127,6 +125,8 @@ brew "theykk/tap/git-switcher"
 brew "withgraphite/tap/graphite"
 # OpenJDK distribution from Amazon
 cask "corretto"
+# Privacy-focused Firefox-based browser
+cask "floorp"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 # Typeface made for developers
@@ -143,8 +143,6 @@ cask "keycastr"
 cask "knockknock"
 # Free cross-platform office suite, fresh version
 cask "libreoffice"
-# Web browser
-cask "librewolf"
 # App to manage software development and track bugs
 cask "linear-linear"
 # Plain-text file notepad and todo-list manager
@@ -159,5 +157,3 @@ cask "sublime-text"
 cask "vlc"
 # Rust-based terminal
 cask "warp"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
