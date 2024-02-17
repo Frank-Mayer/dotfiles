@@ -75,6 +75,10 @@ brew "golines"
 brew "graphviz"
 # Improved top (interactive process viewer)
 brew "htop"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Convert images to PDF via direct JPEG inclusion
+brew "img2pdf"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -89,8 +93,8 @@ brew "make"
 brew "marp-cli"
 # Minimalist GNU for Windows and GCC cross-compilers
 brew "mingw-w64"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
+# Port of pdftk in java
+brew "pdftk-java"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Manage compile and link flags for libraries
@@ -99,6 +103,8 @@ brew "pkg-config"
 brew "plantuml"
 # Fast, disk space efficient package manager
 brew "pnpm"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Used as a compiler wrapper and avoids compilation when possible
@@ -123,6 +129,8 @@ brew "oven-sh/bun/bun"
 brew "theykk/tap/git-switcher"
 # Allows you to manage your stacked changes and submit them for review on GitHub
 brew "withgraphite/tap/graphite"
+# Display management tool
+cask "betterdisplay"
 # OpenJDK distribution from Amazon
 cask "corretto"
 # Privacy-focused Firefox-based browser
