@@ -1,3 +1,4 @@
+tap "frank-mayer/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
@@ -145,7 +146,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "gzdoom"
 # Vector graphics editor
 cask "inkscape"
-# Open-source keystroke visualizer
+# Open-source keystroke visualiser
 cask "keycastr"
 # Tool to show what is persistently installed on the computer
 cask "knockknock"
