@@ -21,6 +21,8 @@ export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+
 export GRAPHVIZ_DOT="/opt/homebrew/bin/dot"
 
 export BUN_INSTALL="$HOME/.bun"
@@ -66,6 +68,10 @@ function gohere
     git init
 end
 
+function csv
+    column -s, -t < $argv | less -N -S
+end
+
 function branch
     # use $argv to build new branch name (replace spaces with dashes) and store in $branch
     set branch (string replace " " "-" "$argv")
@@ -88,6 +94,8 @@ function branch
     end
 end
 
+alias gtree="git log --oneline --graph --color --all --decorate"
+
 alias vim="nvim"
 alias vi="nvim"
 export VISUAL=nvim
@@ -109,4 +117,3 @@ if status is-interactive
     alias copy="pbcopy"
     alias paste="pbpaste"
 end
-
