@@ -30,8 +30,6 @@ brew "buildifier"
 brew "buildozer"
 # Software library to render fonts
 brew "freetype"
-# GNU compiler collection
-brew "gcc"
 # Check Java source against a coding standard
 brew "checkstyle"
 # Cross-platform make
@@ -58,6 +56,8 @@ brew "sdl2"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
+brew "gcc"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -108,8 +108,6 @@ brew "pnpm"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Used as a compiler wrapper and avoids compilation when possible
-brew "sccache"
 # Simple keystroke visualizer
 brew "showkey"
 # Opinionated Lua code formatter
@@ -130,39 +128,11 @@ brew "oven-sh/bun/bun"
 brew "theykk/tap/git-switcher"
 # Allows you to manage your stacked changes and submit them for review on GitHub
 brew "withgraphite/tap/graphite"
-# Display management tool
-cask "betterdisplay"
 # OpenJDK distribution from Amazon
 cask "corretto"
-# Privacy-focused Firefox-based browser
-cask "floorp"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
-# Typeface made for developers
-cask "font-jetbrains-mono"
-# Developer targeted fonts with a high number of glyphs
-cask "font-jetbrains-mono-nerd-font"
-# Adds an OpenGL renderer to the ZDoom source port
-cask "gzdoom"
-# Vector graphics editor
-cask "inkscape"
-# Open-source keystroke visualiser
-cask "keycastr"
-# Tool to show what is persistently installed on the computer
-cask "knockknock"
-# Free cross-platform office suite, fresh version
-cask "libreoffice"
 # App to manage software development and track bugs
 cask "linear-linear"
 # Plain-text file notepad and todo-list manager
 cask "qownnotes"
-# Control your tools with a few keystrokes
-cask "raycast"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
-# Text editor for code, markup and prose
-cask "sublime-text"
-# Multimedia player
-cask "vlc"
-# Rust-based terminal
-cask "warp"
