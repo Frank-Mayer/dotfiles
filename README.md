@@ -1,6 +1,6 @@
 # dotfiles
 
-Neovim config: [Frank-Mayer/nvim](https://github.com/Frank-Mayer/nvim)
+Neovim config: [tsukinoko-kun/nvim](https://github.com/tsukinoko-kun/nvim)
 
 ## My macBook setup steps
 

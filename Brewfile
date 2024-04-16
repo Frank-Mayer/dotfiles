@@ -50,8 +50,6 @@ brew "node"
 brew "eslint"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
@@ -94,6 +92,8 @@ brew "make"
 brew "marp-cli"
 # Minimalist GNU for Windows and GCC cross-compilers
 brew "mingw-w64"
+# Shell command parallelization utility
+brew "parallel"
 # Port of pdftk in java
 brew "pdftk-java"
 # Pinentry for GPG on Mac
@@ -108,16 +108,24 @@ brew "pnpm"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Simple keystroke visualizer
 brew "showkey"
 # Opinionated Lua code formatter
 brew "stylua"
 # Granddaddy of HTML tools, with support for modern standards
 brew "tidy-html5"
+# Terminal multiplexer
+brew "tmux"
 # Simple terminal image viewer written in Rust
 brew "viu"
 # Internet file retriever
 brew "wget"
+# Linter for YAML files
+brew "yamllint"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Right imports sorting & code formatting tool
@@ -136,3 +144,5 @@ cask "flutter"
 cask "linear-linear"
 # Plain-text file notepad and todo-list manager
 cask "qownnotes"
+# Multiplayer code editor
+cask "zed"
