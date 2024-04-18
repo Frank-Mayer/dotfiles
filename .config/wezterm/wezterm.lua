@@ -18,6 +18,7 @@ end
 config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 
 config.color_scheme = "Catppuccin Mocha"
+config.default_cursor_style = "SteadyBar"
 
 config.window_padding = {
 	left = 0,

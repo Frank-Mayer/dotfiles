@@ -115,12 +115,11 @@ if status is-interactive
     zoxide init fish | source
     golangci-lint completion fish | source
     function starship_transient_prompt_func
-        echo -n (set_color -b black white) $(string replace $HOME '~' "$(pwd)")
-        echo -n (set_color -b black white) '❯ '
+        echo -n (set_color black) $(string replace $HOME '~' "$(pwd -P) ❯")
         echo -n (set_color normal) ''
     end
     function starship_transient_rprompt_func
-        date +%H:%M:%S
+        echo -n (set_color black) $(date +%H:%M:%S)
     end
     starship init fish | source
     enable_transience
