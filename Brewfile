@@ -108,12 +108,16 @@ brew "pnpm"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew "sdl2"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Simple keystroke visualizer
 brew "showkey"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
 # Granddaddy of HTML tools, with support for modern standards
@@ -140,9 +144,17 @@ brew "withgraphite/tap/graphite"
 cask "corretto"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
+# Collection of alternate languages for LibreOffice
+cask "libreoffice-language-pack"
 # App to manage software development and track bugs
 cask "linear-linear"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Plain-text file notepad and todo-list manager
 cask "qownnotes"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # Multiplayer code editor
 cask "zed"

@@ -2,7 +2,6 @@ set -x LANG en_US.UTF-8
 set -U fish_greeting ""
 
 export HOMEBREW_PREFIX="/opt/homebrew"
-export CPATH="$HOMEBREW_PREFIX/include:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
 export LD_LIBRARY_PATH="$HOMEBREW_PREFIX/opt/llvm/include"
 export GPG_TTY=$(tty)
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -30,34 +29,31 @@ export BUN_INSTALL="$HOME/.bun"
 
 export PATH="$GOPATH/bin/:$PNPM_HOME:$HOME/development/flutter/bin:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/llvm/bin/:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOME/.local/share/cargo/bin:$HOME/.local/share/nvim/mason/bin:$BUN_INSTALL/bin:$PATH"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
-export PATH="$JAVA_HOME/bin:$PATH:/opt/jack/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-22.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 alias gcc=gcc-13
 alias g++=g++-13
-export RUSTC_WRAPPER=$(which sccache)
+export RUSTC_WRAPPER=$(which sccache) 
+export CC="sccache gcc"
+export CXX="sccache g++"
 
-# bob
-export PATH="$PATH:$XDG_DATA_HOME/bob/nvim-bin"
+export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 
-alias py=python3
-alias python=python3
-alias pip=pip3
 export PYTHON=python3
 
-alias lua=luajit
 
-# ruby
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export PATH="$GEM_HOME/bin:$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
-set -gx LDFLAGS "-L$HOMEBREW_PREFIX/opt/ruby/lib -L$HOMEBREW_PREFIX/opt/gettext/lib"
-set -gx CPPFLAGS "-I$HOMEBREW_PREFIX/opt/ruby/include -I$HOMEBREW_PREFIX/opt/gettext/include"
-set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/ruby/lib -L$HOMEBREW_PREFIX/opt/gettext/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/ruby/include -I$HOMEBREW_PREFIX/opt/gettext/include"
+export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
+export CPATH="$HOMEBREW_PREFIX/include:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
 
 function gohere
     mkdir -p "$argv"
     cd "$argv"
-    go mod init "github.com/Frank-Mayer/$argv"
+    go mod init "github.com/tsukinoko-kun/$argv"
     echo "package main" > main.go
     echo "" >> main.go
     echo "import (" >> main.go
@@ -70,6 +66,15 @@ function gohere
     go mod tidy
     curl https://raw.githubusercontent.com/github/gitignore/main/Go.gitignore -o .gitignore
     echo "# $argv" > README.md
+
+    echo "Copyright $(date +%Y) Frank Mayer" > LICENSE
+    echo "" >> LICENSE
+    echo "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:" >> LICENSE
+    echo "" >> LICENSE
+    echo "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software." >> LICENSE
+    echo "" >> LICENSE
+    echo "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." >> LICENSE
+
     git init
 end
 
@@ -99,10 +104,6 @@ function branch
     end
 end
 
-alias gtree="git log --oneline --graph --color --all --decorate"
-
-alias vim="nvim"
-alias vi="nvim"
 export VISUAL=$(which zed)
 export EDITOR=$(which nvim)
 export GIT_EDITOR=$(which nvim)
@@ -113,6 +114,16 @@ if status is-interactive
     alias lg="lazygit"
     zoxide init fish | source
     golangci-lint completion fish | source
+    function starship_transient_prompt_func
+        echo -n (set_color -b black white) $(string replace $HOME '~' "$(pwd)")
+        echo -n (set_color -b black white) '❯ '
+        echo -n (set_color normal) ''
+    end
+    function starship_transient_rprompt_func
+        date +%H:%M:%S
+    end
+    starship init fish | source
+    enable_transience
     alias cd="z"
     alias ls="list"
     alias l="list -la"
@@ -121,4 +132,12 @@ if status is-interactive
     alias du="dust"
     alias copy="pbcopy"
     alias paste="pbpaste"
+    alias gtree="git log --oneline --graph --color --all --decorate"
+    alias vim="nvim"
+    alias vi="nvim"
+    alias py="python3"
+    alias python="python3"
+    alias pip="pip3"
+    alias lua="luajit"
+
 end
