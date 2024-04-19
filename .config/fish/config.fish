@@ -50,9 +50,21 @@ export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/ruby/include -I$HOMEBREW_PREFIX/opt/gett
 export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
 export CPATH="$HOMEBREW_PREFIX/include:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
 
+function mithere
+    echo "Copyright $(date +%Y) Frank Mayer" > LICENSE
+    echo "" >> LICENSE
+    echo "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:" >> LICENSE
+    echo "" >> LICENSE
+    echo "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software." >> LICENSE
+    echo "" >> LICENSE
+    echo "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." >> LICENSE
+end
+
 function gohere
     mkdir -p "$argv"
     cd "$argv"
+    git init
+
     go mod init "github.com/tsukinoko-kun/$argv"
     echo "package main" > main.go
     echo "" >> main.go
@@ -63,19 +75,14 @@ function gohere
     echo "func main() {" >> main.go
     echo "    fmt.Println(\"Hello, World!\")" >> main.go
     echo "}" >> main.go
-    go mod tidy
+
     curl https://raw.githubusercontent.com/github/gitignore/main/Go.gitignore -o .gitignore
+
+    go mod tidy
+
     echo "# $argv" > README.md
 
-    echo "Copyright $(date +%Y) Frank Mayer" > LICENSE
-    echo "" >> LICENSE
-    echo "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:" >> LICENSE
-    echo "" >> LICENSE
-    echo "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software." >> LICENSE
-    echo "" >> LICENSE
-    echo "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." >> LICENSE
-
-    git init
+    mithere
 end
 
 function csv
@@ -114,6 +121,10 @@ if status is-interactive
     alias lg="lazygit"
     zoxide init fish | source
     golangci-lint completion fish | source
+    bonsai completion fish | source
+    yab completion fish | source
+    gut completion fish | source
+
     function starship_transient_prompt_func
         echo -n (set_color black) $(string replace $HOME '~' "$(pwd -P) ❯")
         echo -n (set_color normal) ''
