@@ -121,7 +121,6 @@ if status is-interactive
     alias lg="lazygit"
     zoxide init fish | source
     golangci-lint completion fish | source
-    bonsai completion fish | source
     yab completion fish | source
     gut completion fish | source
 
