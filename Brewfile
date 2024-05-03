@@ -9,6 +9,7 @@ tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
 tap "theykk/tap"
+tap "tsukinoko-kun/tap"
 tap "withgraphite/tap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
@@ -24,6 +25,10 @@ brew "bazelisk"
 brew "bibclean"
 # Version manager for neovim
 brew "bob"
+# GNU compiler collection
+brew "gcc"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Format bazel BUILD files with a standard convention
 brew "buildifier"
 # Rewrite bazel BUILD files using standard commands
@@ -54,8 +59,6 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU compiler collection
-brew "gcc"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -116,8 +119,6 @@ brew "sdl2"
 brew "shellcheck"
 # Simple keystroke visualizer
 brew "showkey"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Opinionated Lua code formatter
 brew "stylua"
 # Granddaddy of HTML tools, with support for modern standards
@@ -140,16 +141,24 @@ brew "oven-sh/bun/bun"
 brew "theykk/tap/git-switcher"
 # Allows you to manage your stacked changes and submit them for review on GitHub
 brew "withgraphite/tap/graphite"
+# Multi-track audio editor and recorder
+cask "audacity"
 # OpenJDK distribution from Amazon
 cask "corretto"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
+# Typeface made for developers
+cask "font-jetbrains-mono"
+# Free and open-source image editor
+cask "gimp"
 # Free cross-platform office suite, fresh version
 cask "libreoffice"
 # Collection of alternate languages for LibreOffice
 cask "libreoffice-language-pack"
 # App to manage software development and track bugs
 cask "linear-linear"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Plain-text file notepad and todo-list manager
