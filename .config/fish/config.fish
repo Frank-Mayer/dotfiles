@@ -1,7 +1,7 @@
 set -x LANG en_US.UTF-8
-set -U fish_greeting ""
+set -U fish_greeting ''
 
-export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_PREFIX='/opt/homebrew'
 export LD_LIBRARY_PATH="$HOMEBREW_PREFIX/opt/llvm/include"
 export GPG_TTY=$(tty)
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -17,6 +17,7 @@ export PNPM_HOME="$XDG_CONFIG_HOME/pnpm"
 export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export COREPACK_ENABLE_STRICT=0
 
 # lua
 export LUA="$HOMEBREW_PREFIX/opt/luajit/bin/luajit"
@@ -32,16 +33,13 @@ export PATH="$GOPATH/bin/:$PNPM_HOME:$HOME/development/flutter/bin:$HOMEBREW_PRE
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-22.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
-alias gcc=gcc-13
-alias g++=g++-13
 export RUSTC_WRAPPER=$(which sccache) 
-export CC="sccache gcc"
-export CXX="sccache g++"
+export CC='sccache gcc'
+export CXX='sccache g++'
 
 export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 
 export PYTHON=python3
-
 
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export PATH="$GEM_HOME/bin:$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
@@ -50,14 +48,17 @@ export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/ruby/include -I$HOMEBREW_PREFIX/opt/gett
 export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
 export CPATH="$HOMEBREW_PREFIX/include:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
 
+alias gcc=gcc-13
+alias g++=g++-13
+
 function mithere
     echo "Copyright $(date +%Y) Frank Mayer" > LICENSE
-    echo "" >> LICENSE
-    echo "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:" >> LICENSE
-    echo "" >> LICENSE
-    echo "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software." >> LICENSE
-    echo "" >> LICENSE
-    echo "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." >> LICENSE
+    echo '' >> LICENSE
+    echo 'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:' >> LICENSE
+    echo '' >> LICENSE
+    echo 'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.' >> LICENSE
+    echo '' >> LICENSE
+    echo 'THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.' >> LICENSE
 end
 
 function gohere
@@ -66,15 +67,15 @@ function gohere
     git init
 
     go mod init "github.com/tsukinoko-kun/$argv"
-    echo "package main" > main.go
-    echo "" >> main.go
-    echo "import (" >> main.go
-    echo "    \"fmt\"" >> main.go
-    echo ")" >> main.go
-    echo "" >> main.go
-    echo "func main() {" >> main.go
-    echo "    fmt.Println(\"Hello, World!\")" >> main.go
-    echo "}" >> main.go
+    echo 'package main' > main.go
+    echo '' >> main.go
+    echo 'import (' >> main.go
+    echo '    "fmt"' >> main.go
+    echo ')' >> main.go
+    echo '' >> main.go
+    echo 'func main() {' >> main.go
+    echo '    fmt.Println("Hello, World!")' >> main.go
+    echo '}' >> main.go
 
     curl https://raw.githubusercontent.com/github/gitignore/main/Go.gitignore -o .gitignore
 
@@ -91,7 +92,7 @@ end
 
 function branch
     # use $argv to build new branch name (replace spaces with dashes) and store in $branch
-    set branch (string replace " " "-" "$argv")
+    set branch (string replace ' ' '-' "$argv")
 
     echo "$(git branch --show-current) -> $branch"
 
@@ -115,38 +116,89 @@ export VISUAL=$(which zed)
 export EDITOR=$(which nvim)
 export GIT_EDITOR=$(which nvim)
 
+function _git_branch_name
+    set -l git_dir
+    if test -d .git
+        set git_dir .git
+    else
+        set git_dir (git rev-parse --git-dir 2>/dev/null)
+    end
+    test -n "$git_dir"; or return
+
+    set -l r ''
+    set -l b
+    if test -f $git_dir/rebase-merge/interactive
+        set r ' REBASE-i'
+        set b (cat $git_dir/rebase-merge/head-name)
+    else; if test -d $git_dir/rebase-merge
+        set r ' REBASE-m'
+        set b (cat $git_dir/rebase-merge/head-name)
+        else
+            if test -d $git_dir/rebase-apply
+                if test -f $git_dir/rebase-apply/rebasing
+                    set r ' REBASE'
+                else; if test -f $git_dir/rebase-apply/applying
+                        set r ' AM'
+                    else
+                        set r ' AM/REBASE'
+                    end
+                end
+            else; if test -f $git_dir/MERGE_HEAD
+                    set r ' MERGING'
+                else; if test -f $git_dir/CHERRY_PICK_HEAD
+                        set r ' CHERRY-PICKING'
+                    else; if test -f $git_dir/BISECT_LOG
+                            set r ' BISECTING'
+                        end
+                    end
+                end
+            end
+
+            set b (git describe --contains --all HEAD)
+        end
+    end
+
+    set b (string replace -r '^remotes/origin/' '' $b)
+    set b (string replace -r '^remotes/' '' $b)
+
+    echo -n "$r $b"
+end
+
+function fish_prompt
+    echo (set_color brblack) (prompt_pwd) (set_color brblack) (_git_branch_name)
+    echo -n (set_color brblack) '❯ '
+end
+# Async prompt setup.
+set async_prompt_functions _git_branch_name
+function _git_branch_name_loading_indicator
+    echo -n (set_color brblack) '…'
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-    alias lg="lazygit"
+    alias lg='lazygit'
     zoxide init fish | source
     golangci-lint completion fish | source
     yab completion fish | source
     gut completion fish | source
+    sdmt completion fish | source
 
-    function starship_transient_prompt_func
-        echo -n (set_color black) $(string replace $HOME '~' "$(pwd -P) ❯")
-        echo -n (set_color normal) ''
-    end
-    function starship_transient_rprompt_func
-        echo -n (set_color black) $(date +%H:%M:%S)
-    end
-    starship init fish | source
-    enable_transience
-    alias cd="z"
-    alias ls="list"
-    alias l="list -la"
-    alias tree="list -t"
-    alias grep="rg"
-    alias du="dust"
-    alias copy="pbcopy"
-    alias paste="pbpaste"
-    alias gtree="git log --oneline --graph --color --all --decorate"
-    alias vim="nvim"
-    alias vi="nvim"
-    alias py="python3"
-    alias python="python3"
-    alias pip="pip3"
-    alias lua="luajit"
-
+    alias cd='z'
+    alias ls='list'
+    alias l='list -la'
+    alias tree='list -t'
+    alias grep='rg'
+    alias du='dust'
+    alias copy='pbcopy'
+    alias paste='pbpaste'
+    alias gtree='git log --oneline --graph --color --all --decorate'
+    alias vim='nvim'
+    alias vi='nvim'
+    alias py='python3'
+    alias python='python3'
+    alias pip='pip3'
+    alias lua='luajit'
+else
+    set -g async_prompt_enable 0
 end
