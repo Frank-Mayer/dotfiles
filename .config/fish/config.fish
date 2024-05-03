@@ -182,7 +182,6 @@ if status is-interactive
     golangci-lint completion fish | source
     yab completion fish | source
     gut completion fish | source
-    sdmt completion fish | source
 
     alias cd='z'
     alias ls='list'
