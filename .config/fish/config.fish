@@ -1,5 +1,4 @@
 set -x LANG en_US.UTF-8
-set -U fish_greeting ''
 
 export HOMEBREW_PREFIX='/opt/homebrew'
 export LD_LIBRARY_PATH="$HOMEBREW_PREFIX/opt/llvm/include"
@@ -19,7 +18,8 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export COREPACK_ENABLE_STRICT=0
 
-# lua
+source "$CARGO_HOME/env.fish"
+
 export LUA="$HOMEBREW_PREFIX/opt/luajit/bin/luajit"
 
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
@@ -46,7 +46,8 @@ export PATH="$GEM_HOME/bin:$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
 export LDFLAGS="-L$HOMEBREW_PREFIX/opt/ruby/lib -L$HOMEBREW_PREFIX/opt/gettext/lib"
 export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/ruby/include -I$HOMEBREW_PREFIX/opt/gettext/include"
 export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
-export CPATH="$HOMEBREW_PREFIX/include:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
+export CPATH="$HOMEBREW_PREFIX/include:$(xcrun --show-sdk-path)"
+export LIBRARY_PATH="$HOMEBREW_PREFIX/lib"
 
 alias gcc=gcc-13
 alias g++=g++-13
@@ -198,6 +199,34 @@ if status is-interactive
     alias python='python3'
     alias pip='pip3'
     alias lua='luajit'
+
+    set -l c0 "$(set_color white)"
+    set -l c1 "$(set_color green)"
+    set -l c2 "$(set_color yellow)"
+    set -l c3 "$(set_color red)"
+    set -l c4 "$(set_color purple)"
+    set -l c5 "$(set_color blue)"
+
+    set -g fish_greeting "
+$c1                     'c.        $(whoami)$c0@$(set_color green)Franks-MBP
+$c1                  ,xNMM.       $c0 ---------------------------------
+$c1                .OMMMMo        $c2 OS$c0: macOS
+$c1                lMM'           $c2 Interactive Shell$c0: fish
+$c1      .;loddo:.  .olloddol;.   $c2 Default Shell$c0: $(basename $SHELL)
+$c1    cKMMMMMMMMMMNWMMMMMMMMMM0: $c2 DE$c0: Aqua
+$c2  .KMMMMMMMMMMMMMMMMMMMMMMMWd. $c2 WM$c0: Quartz Compositor
+$c2  XMMMMMMMMMMMMMMMMMMMMMMMX.   $c2 Terminal$c0: $TERM_PROGRAM $TERM
+$c3 ;MMMMMMMMMMMMMMMMMMMMMMMM:    $c2 Terminal Font$c0: JetBrains Mono
+$c3 :MMMMMMMMMMMMMMMMMMMMMMMM:    $c2 CPU$c0: $(sysctl -n machdep.cpu.brand_string) $(sysctl -n hw.logicalcpu_max)-Core
+$c3 .MMMMMMMMMMMMMMMMMMMMMMMMX.
+$c3  kMMMMMMMMMMMMMMMMMMMMMMMMWd.
+$c4  'XMMMMMMMMMMMMMMMMMMMMMMMMMMk
+$c4   'XMMMMMMMMMMMMMMMMMMMMMMMMK.
+$c5     kMMMMMMMMMMMMMMMMMMMMMMd
+$c5      ;KMMMMMMMWXXWMMMMMMMk.
+$c5        'cooc*'    '*coo''
+"
 else
     set -g async_prompt_enable 0
+    set -g fish_greeting ''
 end
