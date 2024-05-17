@@ -175,6 +175,10 @@ function _git_branch_name_loading_indicator
     echo -n (set_color brblack) '…'
 end
 
+function neofetch
+    echo -n $fish_greeting
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
