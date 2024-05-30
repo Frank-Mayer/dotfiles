@@ -155,7 +155,7 @@ function _git_branch_name
                 end
             end
 
-            set b (git describe --contains --all HEAD)
+            set b (git symbolic-ref --short HEAD)
         end
     end
 
@@ -187,6 +187,7 @@ if status is-interactive
     golangci-lint completion fish | source
     yab completion fish | source
     gut completion fish | source
+    complete -f -c dotnet -a "(dotnet complete (commandline -cp))"
 
     alias cd='z'
     alias ls='list'
@@ -201,7 +202,8 @@ if status is-interactive
     alias vi='nvim'
     alias py='python3'
     alias python='python3'
-    alias pip='pip3'
+    alias pip='uv pip'
+    alias venv='uv venv'
     alias lua='luajit'
 
     set -l c0 "$(set_color white)"
