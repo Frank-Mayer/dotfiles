@@ -1,4 +1,3 @@
-tap "frank-mayer/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
