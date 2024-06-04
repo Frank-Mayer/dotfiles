@@ -5,9 +5,11 @@ tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "incu6us/tap"
 tap "melkeydev/melkey"
+tap "mhnightcat/superfile", "https://github.com/MHNightCat/homebrew-superfile.git"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
+tap "tako8ki/tap"
 tap "theykk/tap"
 tap "tsukinoko-kun/tap"
 tap "withgraphite/tap"
@@ -45,6 +47,8 @@ brew "cocoapods"
 brew "coreutils"
 # Static analysis of C and C++ code
 brew "cppcheck"
+# Command-line csv viewer
+brew "csvlens"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # More intuitive version of du in rust
@@ -55,6 +59,10 @@ brew "node"
 brew "eslint"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
@@ -73,6 +81,8 @@ brew "go"
 brew "golangci-lint"
 # Golang formatter that fixes long lines
 brew "golines"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Improved top (interactive process viewer)
@@ -95,6 +105,8 @@ brew "make"
 brew "marp-cli"
 # Minimalist GNU for Windows and GCC cross-compilers
 brew "mingw-w64"
+# Cross platform, open source .NET development framework
+brew "mono"
 # Shell command parallelization utility
 brew "parallel"
 # Port of pdftk in java
@@ -107,24 +119,28 @@ brew "pkg-config"
 brew "plantuml"
 # Fast, disk space efficient package manager
 brew "pnpm"
+# Quick and easy command-line file transfer utility from any computer to another
+brew "portal"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Used as a compiler wrapper and avoids compilation when possible
 brew "sccache"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Simple keystroke visualizer
 brew "showkey"
 # Opinionated Lua code formatter
 brew "stylua"
+# Modern and pretty fancy file manager for the terminal
+brew "superfile"
 # Granddaddy of HTML tools, with support for modern standards
 brew "tidy-html5"
 # Terminal multiplexer
 brew "tmux"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Simple terminal image viewer written in Rust
 brew "viu"
 # Internet file retriever
@@ -137,6 +153,8 @@ brew "zoxide"
 brew "incu6us/tap/goimports-reviser"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# Cross-platform TUI database management tool written in Rust
+brew "tako8ki/tap/gobang"
 # Switch between your git profiles easily
 brew "theykk/tap/git-switcher"
 # Allows you to manage your stacked changes and submit them for review on GitHub
@@ -145,10 +163,14 @@ brew "withgraphite/tap/graphite"
 cask "audacity"
 # OpenJDK distribution from Amazon
 cask "corretto"
+# Developer platform
+cask "dotnet-sdk"
 # UI toolkit for building applications for mobile, web and desktop
 cask "flutter"
 # Typeface made for developers
 cask "font-jetbrains-mono"
+# Software reverse engineering (SRE) suite of tools
+cask "ghidra"
 # Free and open-source image editor
 cask "gimp"
 # Free cross-platform office suite, fresh version
@@ -163,6 +185,8 @@ cask "obs"
 cask "orbstack"
 # Plain-text file notepad and todo-list manager
 cask "qownnotes"
+# Text editor for code, markup and prose
+cask "sublime-text"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
 # Multiplayer code editor

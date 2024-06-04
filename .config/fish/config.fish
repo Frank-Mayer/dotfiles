@@ -214,17 +214,17 @@ if status is-interactive
     set -l c5 "$(set_color blue)"
 
     set -g fish_greeting "
-$c1                     'c.        $(whoami)$c0@$(set_color green)Franks-MBP
-$c1                  ,xNMM.       $c0 ---------------------------------
-$c1                .OMMMMo        $c2 OS$c0: macOS
-$c1                lMM'           $c2 Interactive Shell$c0: fish
-$c1      .;loddo:.  .olloddol;.   $c2 Default Shell$c0: $(basename $SHELL)
-$c1    cKMMMMMMMMMMNWMMMMMMMMMM0: $c2 DE$c0: Aqua
-$c2  .KMMMMMMMMMMMMMMMMMMMMMMMWd. $c2 WM$c0: Quartz Compositor
-$c2  XMMMMMMMMMMMMMMMMMMMMMMMX.   $c2 Terminal$c0: $TERM_PROGRAM $TERM
-$c3 ;MMMMMMMMMMMMMMMMMMMMMMMM:    $c2 Terminal Font$c0: JetBrains Mono
-$c3 :MMMMMMMMMMMMMMMMMMMMMMMM:    $c2 CPU$c0: $(sysctl -n machdep.cpu.brand_string) $(sysctl -n hw.logicalcpu_max)-Core
-$c3 .MMMMMMMMMMMMMMMMMMMMMMMMX.
+$c1                     'c.         $(whoami)$c0@$(set_color green)Franks-MBP
+$c1                  ,xNMM.        $c0 ---------------------------------
+$c1                .OMMMMo         $c2 OS$c0: macOS
+$c1                lMM'            $c2 Interactive Shell$c0: fish
+$c1      .;loddo:.  .olloddol;.    $c2 Default Shell$c0: $(basename $SHELL)
+$c1    cKMMMMMMMMMMNWMMMMMMMMMM0:  $c2 Packages$c0: $(math $(list -c $HOMEBREW_PREFIX/bin) + $(list -c $HOMEBREW_PREFIX/Caskroom/)) (homebrew), $(list -c $GOPATH/bin/) (go), $(list -c $CARGO_HOME/bin/) (cargo)
+$c2  .KMMMMMMMMMMMMMMMMMMMMMMMWd.  $c2 DE$c0: Aqua
+$c2  XMMMMMMMMMMMMMMMMMMMMMMMX.    $c2 WM$c0: Quartz Compositor
+$c3 ;MMMMMMMMMMMMMMMMMMMMMMMM:     $c2 Terminal$c0: $TERM_PROGRAM $TERM
+$c3 :MMMMMMMMMMMMMMMMMMMMMMMM:     $c2 Terminal Font$c0: JetBrains Mono 
+$c3 .MMMMMMMMMMMMMMMMMMMMMMMMX.    $c2 CPU$c0: $(sysctl -n machdep.cpu.brand_string) $(sysctl -n hw.logicalcpu_max)-Core
 $c3  kMMMMMMMMMMMMMMMMMMMMMMMMWd.
 $c4  'XMMMMMMMMMMMMMMMMMMMMMMMMMMk
 $c4   'XMMMMMMMMMMMMMMMMMMMMMMMMK.
