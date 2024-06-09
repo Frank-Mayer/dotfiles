@@ -219,7 +219,7 @@ $c1                  ,xNMM.        $c0 ---------------------------------
 $c1                .OMMMMo         $c2 OS$c0: macOS
 $c1                lMM'            $c2 Interactive Shell$c0: fish
 $c1      .;loddo:.  .olloddol;.    $c2 Default Shell$c0: $(basename $SHELL)
-$c1    cKMMMMMMMMMMNWMMMMMMMMMM0:  $c2 Packages$c0: $(math $(list -c $HOMEBREW_PREFIX/bin) + $(list -c $HOMEBREW_PREFIX/Caskroom/)) (homebrew), $(list -c $GOPATH/bin/) (go), $(list -c $CARGO_HOME/bin/) (cargo)
+$c1    cKMMMMMMMMMMNWMMMMMMMMMM0:  $c2 Packages$c0: $(math $(list -c $HOMEBREW_PREFIX/bin) + $(list -c $HOMEBREW_PREFIX/Caskroom/)) (homebrew), $(list -c $GOPATH/bin/) (go), $(list -c $CARGO_HOME/bin/) (cargo), $(list -c $PNPM_HOME/) (pnpm)
 $c2  .KMMMMMMMMMMMMMMMMMMMMMMMWd.  $c2 DE$c0: Aqua
 $c2  XMMMMMMMMMMMMMMMMMMMMMMMX.    $c2 WM$c0: Quartz Compositor
 $c3 ;MMMMMMMMMMMMMMMMMMMMMMMM:     $c2 Terminal$c0: $TERM_PROGRAM $TERM
